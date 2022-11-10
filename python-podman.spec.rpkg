@@ -11,6 +11,7 @@
 %global old_rhel 0
 %endif
 
+%global pypi_dist 4
 %global pypi_name podman
 %global desc %{pypi_name} is a library of bindings to use the RESTful API for Podman.
 
@@ -64,6 +65,8 @@ BuildRequires: python%{python3_pkgversion}-tomli
 Requires: python%{python3_pkgversion}-tomli
 %endif
 Provides: %{pypi_name}-py = %{version}-%{release}
+Provides: python%{python3_pkgversion}dist(%{pypi_name}) = %{pypi_dist}
+Provides: python%{python3_version}dist(%{pypi_name}) = %{pypi_dist}
 Summary: %{summary}
 %{?python_provide:%python_provide python%{python3_pkgversion}-%{pypi_name}}
 
